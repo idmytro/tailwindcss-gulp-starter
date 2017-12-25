@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "browser-sync": "2.21.0",
+    "gulp": "3.9.1",
+    "postcss": "6.0.14",
+    "tailwindcss": "0.4.0"
+  },
+  "scripts": {
+  }
+}
