@@ -1,10 +1,12 @@
 {
   "devDependencies": {
+    "autoprefixer": "7.2.3",
     "browser-sync": "2.21.0",
     "gulp": "3.9.1",
-    "postcss": "6.0.14",
+    "gulp-postcss": "7.0.0",
     "tailwindcss": "0.4.0"
   },
   "scripts": {
+    "start": "./node_modules/gulp/bin/gulp.js"
   }
 }
