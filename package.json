@@ -4,6 +4,7 @@
     "browser-sync": "2.21.0",
     "gulp": "3.9.1",
     "gulp-postcss": "7.0.0",
+    "postcss-import": "11.0.0",
     "tailwindcss": "0.4.0"
   },
   "scripts": {
