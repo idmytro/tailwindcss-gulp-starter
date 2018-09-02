@@ -25,6 +25,9 @@ gulp.task('css', () => {
             require('postcss-import'),
             require('tailwindcss')('./tailwind.js'),
             require('autoprefixer'),
+            require('postcss-uncss')({
+              html: ['index.html'],
+            }),
         ]))
         .pipe(gulp.dest('dist/'));
 });

@@ -5,7 +5,9 @@
     "gulp": "3.9.1",
     "gulp-postcss": "^8.0.0",
     "postcss-import": "^12.0.0",
-    "tailwindcss": "^0.6.5"
+    "postcss-uncss": "0.16.1",
+    "tailwindcss": "^0.6.5",
+    "uncss": "0.16.2"
   },
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js"
