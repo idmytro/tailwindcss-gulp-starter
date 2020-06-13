@@ -3,7 +3,7 @@ const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const stripCssComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
-
+const footer = require('gulp-footer');
 
 gulp.task('bs', ['css'], () => {
     browserSync.init({
@@ -34,6 +34,7 @@ gulp.task('css', () => {
         ]))
         .pipe(stripCssComments({preserve: false}))
         .pipe(cleanCSS(require('./clean-css.config')))
+        .pipe(footer('\n'))
         .pipe(gulp.dest('dist/'));
 });
 
