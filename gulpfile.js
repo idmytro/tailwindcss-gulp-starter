@@ -12,7 +12,7 @@ gulp.task('bs', ['css'], () => {
         }
     });
 
-    gulp.watch(['index.html', 'configs/tailwind.js'], ['css', 'html-watch']);
+    gulp.watch(['index.html', 'tailwind.js'], ['css', 'html-watch']);
 });
 
 gulp.task('html-watch',  done => {
@@ -26,7 +26,7 @@ gulp.task('css', () => {
     return gulp.src('src/styles.css')
         .pipe(postcss([
             require('postcss-import'),
-            require('tailwindcss')('./configs/tailwind.js'),
+            require('tailwindcss')('./tailwind.js'),
             require('autoprefixer')
         ]))
         .pipe(stripCssComments({preserve: false}))
