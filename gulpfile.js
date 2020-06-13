@@ -1,6 +1,9 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
+const stripCssComments = require('gulp-strip-css-comments');
+const cleanCSS = require('gulp-clean-css');
+const footer = require('gulp-footer');
 
 gulp.task('bs', ['css'], () => {
     browserSync.init({
@@ -9,7 +12,7 @@ gulp.task('bs', ['css'], () => {
         }
     });
 
-    gulp.watch(["index.html", "tailwind.js"], ['css', 'html-watch']);
+    gulp.watch(['index.html', 'configs/tailwind.js'], ['css', 'html-watch']);
 });
 
 gulp.task('html-watch',  done => {
@@ -23,9 +26,12 @@ gulp.task('css', () => {
     return gulp.src('src/styles.css')
         .pipe(postcss([
             require('postcss-import'),
-            require('tailwindcss')('./tailwind.js'),
-            require('autoprefixer'),
+            require('tailwindcss')('./configs/tailwind.js'),
+            require('autoprefixer')
         ]))
+        .pipe(stripCssComments({preserve: false}))
+        .pipe(cleanCSS(require('./configs/clean-css')))
+        .pipe(footer('\n'))
         .pipe(gulp.dest('dist/'));
 });
 
