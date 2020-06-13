@@ -1,6 +1,9 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
+const stripCssComments = require('gulp-strip-css-comments');
+const cleanCSS = require('gulp-clean-css');
+
 
 gulp.task('bs', ['css'], () => {
     browserSync.init({
@@ -29,6 +32,8 @@ gulp.task('css', () => {
               html: ['index.html'],
             }),
         ]))
+        .pipe(stripCssComments({preserve: false}))
+        .pipe(cleanCSS(require('./clean-css.config')))
         .pipe(gulp.dest('dist/'));
 });
 
