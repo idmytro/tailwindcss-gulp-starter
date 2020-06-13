@@ -25,7 +25,6 @@ gulp.task('html-watch',  done => {
 gulp.task('css', () => {
     return gulp.src('src/styles.css')
         .pipe(postcss([
-            require('postcss-import'),
             require('tailwindcss')('./tailwind.js'),
             require('autoprefixer')
         ]))

@@ -7,6 +7,12 @@ const cleanConfig = require('./configs/clean-css')
 module.exports = {
     plugins: [
         tailwind(tailwindConfig),
-        clean(cleanConfig)
+        clean(cleanConfig),
+        require('postcss-discard-comments')({removeAll: true}),
+        require('postcss-banner')({
+            inline: true,
+            banner: 'styles:start',
+            footer: 'styles:end'
+        })
     ]
 }
