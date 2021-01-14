@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
+const replace = require('gulp-replace');
 const stripCssComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
 const cleanCssConfig = require('./configs/clean-css');
@@ -16,6 +17,7 @@ gulp.task('css', function () {
         .pipe(postcss([
             require('postcss-final-newline')
         ]))
+        .pipe(replace('\n\n', '\n'))
         .pipe(gulp.dest('dist/'));
 });
 
