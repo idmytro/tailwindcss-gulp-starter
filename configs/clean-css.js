@@ -13,13 +13,11 @@ module.exports = {
         },
         breakWith: '\n', // controls the new line character, can be `'\r\n'` or `'\n'` (aliased as `'windows'` and `'unix'` or `'crlf'` and `'lf'`); defaults to system one, so former on Windows and latter on Unix
         indentBy: 0, // controls number of characters to indent with; defaults to `0`
-        indentWith: 'space', // controls a character to indent with, can be `'space'` or `'tab'`; defaults to `'space'`
         spaces: { // controls where to insert spaces
             aroundSelectorRelation: true, // controls if spaces come around selector relations; e.g. `div > a`; defaults to `false`
             beforeBlockBegins: true, // controls if a space comes before a block begins; e.g. `.block {`; defaults to `false`
             beforeValue: false // controls if a space comes before a value; e.g. `width: 1rem`; defaults to `false`
         },
-        wrapAt: false, // controls maximum line length; defaults to `false`
         semicolonAfterLastProperty: false // controls removing trailing semicolons in rule; defaults to `false` - means remove
     }
 };
