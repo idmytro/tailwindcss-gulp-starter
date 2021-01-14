@@ -5,9 +5,22 @@ const replace = require('gulp-replace');
 const stripCssComments = require('gulp-strip-css-comments');
 const cleanCSS = require('gulp-clean-css');
 const cleanCssConfig = require('./configs/clean-css');
+const minimist = require('minimist');
+
+// const knownOptions = {
+//     string: 'env',
+//     default: { env: process.env.NODE_ENV || 'production' }
+//   };
+
+// const options = minimist(process.argv.slice(2), knownOptions);
+const options = minimist(process.argv.slice(2));
+
+// https://github.com/gulpjs/gulp/blob/master/docs/recipes/pass-arguments-from-cli.md
 
 gulp.task('css', function () {
-    return gulp.src('src/styles.css')
+    console.log('options', options);
+
+    return gulp.src('src/utils.css')
         .pipe(postcss([
             require('tailwindcss')('./configs/tailwind.js'),
             require('autoprefixer'),

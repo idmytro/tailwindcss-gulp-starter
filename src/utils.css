@@ -1,0 +1,4 @@
+/*! stylelint-disable *//*! utils:start */
+/* clean-css ignore:start */@tailwind components;/* clean-css ignore:end *//* components need for variables */
+@tailwind utilities;
+/*! utils:end  */
