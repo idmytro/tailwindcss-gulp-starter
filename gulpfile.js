@@ -21,29 +21,44 @@ const args = minimist(process.argv.slice(2));
 const configs = {
     default: './configs/tailwind.js',
     blank: './configs/blank/index.js',
-    v: './configs/v/index.js'
+    v: './configs/v/index.js',
+    f_s: './configs/frontier-sizes/index.js'
 }
+
+const paths1 = {
+    src: 'src/utils.css',
+    dest: 'dist/'
+}
+
+const paths_fs = {
+    src: 'src/utils-sizes.css',
+    dest: 'dist/',
+    rename: 'utils-sizes.css'
+}
+
+const paths = paths_fs
 
 const config = configs[args.config] || configs.default;
 const suffix = args.config ? `-${args.config}` : '';
+
+// gulp css --config f_s.
 
 gulp.task('css', function () {
     console.log('args', args);
     console.log('config', config);
 
 
-    return gulp.src('src/utils.css')
+    return gulp.src(paths.src)
         .pipe(postcss([
-            // require('tailwindcss')('./configs/tailwind.js'),
             require('tailwindcss')(config),
-            // require('autoprefixer'),
             require('postcss-clean')(cleanCssConfig),
             require('postcss-final-newline')
         ]))
         .pipe(replace('\n\n', '\n'))
         .pipe(replace('/*!', '/*'))
-        .pipe(rename({suffix}))
-        .pipe(gulp.dest('dist/'));
+        // .pipe(rename({suffix}))
+        // .pipe(rename("utils-sizes.css"))
+        .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('bs', gulp.series('css', function() {
