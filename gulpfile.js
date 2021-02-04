@@ -47,10 +47,12 @@ gulp.task('css', function () {
     console.log('args', args);
     console.log('config', config);
 
-
     return gulp.src(paths.src)
         .pipe(postcss([
             require('tailwindcss')(config),
+        ]))
+        // .pipe(replace('\n\n', '\n'))
+        .pipe(postcss([
             require('postcss-clean')(cleanCssConfig),
             require('postcss-final-newline')
         ]))
