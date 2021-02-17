@@ -6,8 +6,9 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-postcss": "^9.0.0",
     "gulp-strip-css-comments": "^2.0.0",
-    "tailwindcss": "^2.0.2",
-    "postcss-final-newline": "git+https://github.com/idmytro/postcss-final-newline.git"
+    "postcss": "^8.2.4",
+    "postcss-final-newline": "git+https://github.com/idmytro/postcss-final-newline.git",
+    "tailwindcss": "^2.0.3"
   },
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js",
